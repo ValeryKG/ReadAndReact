@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read and React Offense - Complete Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .nav-menu {
+            background: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 120px;
+            z-index: 99;
+        }
+        
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .nav-menu a:hover {
+            background: #34495e;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #ff6b6b;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        
+        .section h4 {
+            color: #e74c3c;
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+            font-weight: bold;
+        }
+        
+        .emphasis-box {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            border: 2px solid #e17055;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .emphasis-box h4 {
+            color: #d63031;
+            margin-bottom: 1rem;
+        }
+        
+        .drill-box {
+            background: linear-gradient(135deg, #a8e6cf, #81c784);
+            border: 2px solid #2e7d32;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .drill-box h4 {
+            color: #1b5e20;
+            margin-bottom: 1rem;
+        }
+        
+        .key-points {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            border: 2px solid #1976d2;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .key-points h4 {
+            color: #0d47a1;
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .glossary {
+            background: #f1f8e9;
+            border: 2px solid #689f38;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .glossary h4 {
+            color: #33691e;
+            margin-bottom: 1rem;
+        }
+        
+        .scoring-system {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .offense-scoring, .defense-scoring {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 2px solid #ddd;
+        }
+        
+        .offense-scoring h4 {
+            color: #e74c3c;
+        }
+        
+        .defense-scoring h4 {
+            color: #3498db;
+        }
+        
+        .stage-progression {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .stage-progression h4 {
+            color: #e65100;
+            margin-bottom: 1rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            display: none;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-menu-btn {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            display: none;
+            z-index: 1000;
+        }
+
+        .nav-menu-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+            
+            .scoring-system {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏀 Read and React Offense</h1>
+            <p>Complete Coaching Guide & Player Reference</p>
+        </div>
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#philosophy">Philosophy</a></li>
+                <li><a href="#glossary">Glossary</a></li>
+                <li><a href="#emphasis">Points of Emphasis</a></li>
+                <li><a href="#core-actions">Core Actions</a></li>
+                <li><a href="#advanced-concepts">Advanced Concepts</a></li>
+                <li><a href="#drilling">Drilling Structure</a></li>
+                <li><a href="#competitive">Competitive Drills</a></li>
+                <li><a href="#stations">Station Work</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            
+            <div id="philosophy" class="section">
+                <h2>🎯 Read and React Philosophy</h2>
+                
+                <div class="emphasis-box">
+                    <h4>Core Philosophy</h4>
+                    <p><strong>Read and React = Relentlessly attack defense weak areas without pattern and always take what it's given by defense</strong></p>
+                    <p><strong>Read and React = Emphasize intelligence</strong> (shot selection, pass and drives timing, patience with ball - choose best action)</p>
+                    <p><strong>Embracing freestyle (motion)</strong> -- constant movement mandatory for all 5 positions</p>
+                </div>
+                
+                <div class="key-points">
+                    <h4>Coaching Design Principles</h4>
+                    <ul>
+                        <li><strong>Design drills with every action ending with scoring option</strong></li>
+                        <li><strong>Example:</strong> Pass and Cut drill - receiver catches and shoots, cutter gets pass from 3rd player, then reverse or extend to two actions before first or second player attacks</li>
+                        <li><strong>Tape practice:</strong> Meet with team before practice, tell them what they're about to do</li>
+                        <li><strong>Set goals:</strong> Before games/practices, establish team goals, individual goals, areas of emphasis (grab 10 rebounds, stop penetration, don't allow opponent to score 80 points, etc.)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="glossary" class="section">
+                <h2>📚 Glossary & Terminology</h2>
+                
+                <div class="glossary">
+                    <h4>Court Positions & Areas</h4>
+                    <ul>
+                        <li><strong>Corner:</strong> Baseline corner areas</li>
+                        <li><strong>Wing (W):</strong> Side court positions</li>
+                        <li><strong>Point/Top of Key (T):</strong> Top of 3-point arc</li>
+                        <li><strong>Short Corner:</strong> Area between baseline and free throw line extended</li>
+                        <li><strong>High Post:</strong> Free throw line area</li>
+                        <li><strong>Mid Post:</strong> Between high and low post</li>
+                        <li><strong>Low Post:</strong> Block area</li>
+                        <li><strong>Elbow (E):</strong> Free throw line corners</li>
+                    </ul>
+                </div>
+                
+                <div class="glossary">
+                    <h4>Actions & Movements</h4>
+                    <ul>
+                        <li><strong>Cut (C):</strong> Movement toward basket</li>
+                        <li><strong>Front Cut (FC):</strong> Cut in front of defender</li>
+                        <li><strong>Back Cut (BC)/Rear Cut:</strong> Cut behind defender</li>
+                        <li><strong>X-Cut:</strong> Crossing cut pattern</li>
+                        <li><strong>LA Cut:</strong> Low/High basket cut options</li>
+                        <li><strong>Down Screen (DS):</strong> Screen toward baseline</li>
+                        <li><strong>Up Screen/Back Screen (BS):</strong> Screen toward half court</li>
+                        <li><strong>Dribble At (At):</strong> Dribbling directly at teammate</li>
+                        <li><strong>Read Line:</strong> 3-point line as decision marker</li>
+                        <li><strong>Skip Pass:</strong> Pass across court (two or more passes away)</li>
+                        <li><strong>Feed the Post:</strong> Pass into post position</li>
+                    </ul>
+                </div>
+                
+                <div class="glossary">
+                    <h4>Defensive Terms</h4>
+                    <ul>
+                        <li><strong>Defender (D):</strong> Defensive player</li>
+                        <li><strong>Over:</strong> Defender over the screen</li>
+                        <li><strong>Under:</strong> Defender under the screen</li>
+                        <li><strong>Switch:</strong> Defenders exchange assignments</li>
+                        <li><strong>Through:</strong> Defender fights through screen</li>
+                        <li><strong>ICE:</strong> Force ball handler to sideline</li>
+                    </ul>
+                </div>
+                
+                <div class="glossary">
+                    <h4>Formation Calls</h4>
+                    <ul>
+                        <li><strong>Red:</strong> 5 out formation</li>
+                        <li><strong>Green:</strong> 4/3 out, 1/2 in formation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="emphasis" class="section">
+                <h2>⭐ Points of Emphasis</h2>
+                
+                <div class="emphasis-box">
+                    <h4>Fundamental Requirements</h4>
+                    <ul>
+                        <li><strong>Spacing and spots</strong> - Proper floor positioning</li>
+                        <li><strong>Timing</strong> - Change of speed for most R&R actions</li>
+                        <li><strong>Constant movement</strong> - Never stand still</li>
+                        <li><strong>Communication</strong> - Always use names then call or show action</li>
+                        <li><strong>Always be ready to attack</strong> - With ball or without it</li>
+                        <li><strong>Strong and sharp passing</strong> - Pass away from defender</li>
+                        <li><strong>Must move to the pass</strong> - Don't wait for ball to come to you</li>
+                        <li><strong>Read defenders</strong> - Take all that defense gives you</li>
+                        <li><strong>Hunt for better position, not the ball</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="key-points">
+                    <h4>Essential Skills & Techniques</h4>
+                    <ul>
+                        <li><strong>Move towards pass</strong> - Not standing still waiting for ball</li>
+                        <li><strong>Triple threat position</strong> - Every time you catch the ball</li>
+                        <li><strong>Always first thing is to pump fake</strong></li>
+                        <li><strong>Use fakes:</strong> Pass fake, jab step, pivots</li>
+                        <li><strong>Sharp passing</strong> - If someone can't catch, throw even harder next time</li>
+                        <li><strong>Be tough:</strong> If defender prevents you going left, "swim over" and go right - get physical</li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h4>Drill Progression Example</h4>
+                    <p><strong>Pass and Cut progression:</strong></p>
+                    <ul>
+                        <li>1 cuts left, 2 cuts right</li>
+                        <li>Chest pass, bounce pass, layup pass</li>
+                        <li>Finish reverse, finish jump shot, finish tear drop</li>
+                        <li>Hook pass, behind the back pass, etc.</li>
+                        <li>Next level: Add defender</li>
+                        <li>Next level: Add second ball for extra shot practice</li>
+                    </ul>
+                </div>
+                
+                <div class="key-points">
+                    <h4>Evaluation Method</h4>
+                    <p><strong>Scrimmage 5 vs 0:</strong> Ask players to do any type of action continuously. As coach, observe what they prefer to do more or less, then ask directly why they prefer one thing over another. This helps identify what to emphasize or address in next practice.</p>
+                </div>
+            </div>
+            
+            <div id="core-actions" class="section">
+                <h2>🏃‍♂️ Core Actions</h2>
+                
+                <div class="drill-box">
+                    <h3>1. Pass and Cut</h3>
+                    <h4>Basic Rules:</h4>
+                    <ul>
+                        <li><span class="highlight">If you pass, you must cut</span></li>
+                        <li><strong>Pass one pass away → Must Cut (Front Cut or Rear Cut)</strong></li>
+                        <li><strong>Read Line/Defender:</strong> If defender crosses 3-point line, you must cut to basket</li>
+                        <li><strong>If defender looks away, you must cut</strong></li>
+                        <li><strong>If defender not in defensive stance, you must cut</strong></li>
+                    </ul>
+                    
+                    <h4>Formation Options:</h4>
+                    <ul>
+                        <li><strong>5 out:</strong> All perimeter players</li>
+                        <li><strong>4 out 1 in or 3 out 2 in:</strong> Post players included</li>
+                    </ul>
+                    
+                    <h4>Cutting Fundamentals:</h4>
+                    <ul>
+                        <li><strong>Ask for ball while cutting</strong> - demand ball on the cut</li>
+                        <li><strong>Show your hands</strong> - demonstrate you're open</li>
+                        <li><strong>Use names</strong> to call for ball</li>
+                        <li><strong>On cut - must touch spot underneath the basket</strong></li>
+                    </ul>
+                    
+                    <h4>Filling Empty Spots:</h4>
+                    <ul>
+                        <li><strong>Move to the ball</strong> - don't stand still and wait</li>
+                        <li><strong>Be ready to catch and shoot:</strong> Stride stop, jump stop</li>
+                        <li><strong>Fill spot moving away from 3-point line</strong> - curve away</li>
+                        <li><strong>Every time you get ball:</strong> Triple threat position</li>
+                        <li><strong>Every time you get ball:</strong> Fake a shot first</li>
+                    </ul>
+                    
+                    <h4>Finishing Options:</h4>
+                    <ul>
+                        <li>Pump fake, drop step, power layup</li>
+                        <li>Euro step, jump stop, power layup</li>
+                        <li>Catch one dribble, quick spin, layup</li>
+                        <li>Catch and shoot</li>
+                        <li>Catch → sidestep → shot</li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>2. Read Line</h3>
+                    <h4>3-Point Line as Decision Maker:</h4>
+                    <ul>
+                        <li><strong>Defender crosses 3-point line → Must cut</strong></li>
+                        <li><strong>Defender overplays → Must cut</strong></li>
+                        <li><strong>Defender turns head away → Must cut to basket</strong></li>
+                        <li><strong>Defender in denying position → Must cut to basket (rear cut)</strong></li>
+                    </ul>
+                    
+                    <h4>Alternative Actions:</h4>
+                    <ul>
+                        <li><strong>X-Cut:</strong> Crossing cut pattern (read vs overplay/deny reactions)</li>
+                        <li><strong>Pass and Screen:</strong> If can't get ball</li>
+                        <li><strong>Dribble Hand Off</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>3. Post Pass and Cut</h3>
+                    <h4>Post Positions:</h4>
+                    <ul>
+                        <li>Short corner</li>
+                        <li>Low post</li>
+                        <li>Mid post</li>
+                        <li>High post</li>
+                    </ul>
+                    
+                    <h4>Feeding Post Rules:</h4>
+                    <ul>
+                        <li><span class="highlight">If you feed the post, you must basket cut</span></li>
+                        <li><strong>Cutter options:</strong> Go wide or brush screen-like</li>
+                        <li><strong>Wing feeds post and no one in corner:</strong> Regardless of cut direction, closest player must fill vacated spot</li>
+                        <li><strong>If passer has teammates on right and left:</strong> Direction of cut pulls closest player to vacated spot</li>
+                    </ul>
+                    
+                    <h4>Post Player Development:</h4>
+                    <ul>
+                        <li><strong>Different passing types:</strong> Wrap around, push pass, bounce pass, late pass</li>
+                        <li><strong>LA Cut options:</strong> Low post LA high, mid or high post any LA cuts</li>
+                        <li><strong>X-Cut opportunities</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>4. Dribble At</h3>
+                    <h4>Basic Rule:</h4>
+                    <ul>
+                        <li><span class="highlight">Dribble At teammate → Must basket cut</span> (Power dribble is exception)</li>
+                        <li><strong>Dribble At Ball Side High/Mid Post → Must basket cut then short corner</strong></li>
+                        <li><strong>Dribble At Weak Side High/Mid Post → Must basket cut then short corner</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="advanced-concepts" class="section">
+                <h2>🎯 Advanced Concepts</h2>
+                
+                <div class="drill-box">
+                    <h3>Circle Move Strategy</h3>
+                    <h4>Ball Handler Drives:</h4>
+                    <ul>
+                        <li><strong>Drive right or left → Everyone on perimeter moves one spot right or left</strong></li>
+                        <li><strong>Ball handler changes direction → Circle movement must change direction</strong></li>
+                        <li><strong>Safety valve denied → Must basket cut or X-Cut</strong></li>
+                        <li><strong>Penetrator who passed ball → May choose any R&R action (screen, finish cut, post up, etc.)</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Basic Post Slides</h3>
+                    <h4>Post Player Rules:</h4>
+                    <ul>
+                        <li><strong>Any player near paint or short corner → Must obey post player rules if drive happens</strong></li>
+                        <li><strong>Ball dribbles above post (strong/weak side) → Must slide to short corner</strong></li>
+                        <li><strong>Ball dribbles below post (strong/weak side) → Step above FT line, elbow</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Baseline Drive</h3>
+                    <h4>Condition: Only if no teammate between you and baseline</h4>
+                    <h4>When Drive Occurs, Everyone Must Fill:</h4>
+                    <ul>
+                        <li><span class="highlight">Fill opposite corner</span> (circular movement first, then back to corner)</li>
+                        <li><strong>45-degree angle</strong> (if no post player on line)</li>
+                        <li><strong>90-degree angle</strong> (if no post player on line)</li>
+                        <li><strong>Safety valve</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Pin & Skip</h3>
+                    <h4>Skills: Read weak side defenders, effective against zone, last-second shots</h4>
+                    <h4>Rules and Situations:</h4>
+                    <ul>
+                        <li><span class="highlight">MUST communicate - Name of player then "PIN!"</span></li>
+                        <li><strong>Pin defender with longest recovery</strong></li>
+                        <li><strong>4 out: Low post weak side automatic screen</strong></li>
+                        <li><strong>Ball on top, 5 out: Wing can set pin for corner and vice versa</strong></li>
+                        <li><strong>4 out ball side: Low/mid post sets pin screen for wing</strong></li>
+                    </ul>
+                    <h4>Next Best Action:</h4>
+                    <ul>
+                        <li><strong>After basket, make pin screen (weak side)</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Circle Reverse</h3>
+                    <h4>When Penetrator Picks Up Dribble:</h4>
+                    <ul>
+                        <li><strong>Natural pitch player can reverse circle</strong></li>
+                        <li><strong>Get in position as safety valve</strong></li>
+                        <li><strong>Behave as post player executing advanced slides</strong></li>
+                    </ul>
+                    <h4>Safety Valve Player Reactions:</h4>
+                    <ul>
+                        <li><strong>Defender in deny position or crossed 3-point line → LA cut low or high</strong></li>
+                        <li><strong>Execute X-Cut to open next player</strong></li>
+                        <li><strong>If perimeter player can't get ball → MUST CUT to vacate spot</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Power Dribble</h3>
+                    <h4>Signal for hand-off pick and roll from weak side player:</h4>
+                    <ul>
+                        <li>Create mismatch</li>
+                        <li>Pressure relief</li>
+                        <li>Post advance</li>
+                    </ul>
+                    <h4>Relief Player Reads:</h4>
+                    <ul>
+                        <li><strong>Defender pressing ball handler, denying one direction → Drop step or spin</strong></li>
+                        <li><strong>Defender goes under → Shape up for shot or dribble drive</strong></li>
+                        <li><strong>Defender in deny → Curl shoulder to shoulder</strong></li>
+                        <li><strong>Defender over read line → Must basket cut (read line rule)</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Screening Actions</h3>
+                    <h4>Post Screens:</h4>
+                    <ul>
+                        <li><strong>Post player must obey Post Slides or Advanced Post Slides rules</strong></li>
+                        <li><strong>Back screen, Flare screen, Ball screen - all freedoms of action for post players</strong></li>
+                    </ul>
+                    
+                    <h4>Back Screen Options:</h4>
+                    <ul>
+                        <li><strong>After finishing basket cut, instead of filling open spot:</strong> Back screen or Ball screen</li>
+                        <li><strong>For post player to get out of paint:</strong> May use any type of screen</li>
+                    </ul>
+                    
+                    <h4>Multiple Screen Rule:</h4>
+                    <ul>
+                        <li><span class="highlight">Never set a screen and stand</span></li>
+                        <li><strong>Options after screen:</strong> Post up, Flash open area, Fill open spot</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="drilling" class="section">
+                <h2>🏋️‍♂️ Drilling Structure</h2>
+                
+                <div class="drill-box">
+                    <h3>4-Station Structure</h3>
+                    <ol>
+                        <li><strong>Pass and Cut</strong></li>
+                        <li><strong>Read Line</strong></li>
+                        <li><strong>Post Pass and Cut</strong> (post player development)</li>
+                        <li><strong>Dribble At</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Mix It Up Drilling (4 Stations)</h3>
+                    <ul>
+                        <li>Pass and Cut + Dribble At</li>
+                        <li>Dribble At + Drive</li>
+                        <li>Drive + Pass and Cut</li>
+                        <li>Dribble At + Read Line</li>
+                        <li>Pass and Cut + Read Line</li>
+                        <li>Pass and Cut + Down Screen</li>
+                        <li>Dribble At + Down Screen</li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>2-Station Drilling</h3>
+                    <h4>Pass and Cut Focus:</h4>
+                    <ul>
+                        <li><strong>3 players out:</strong> Left/Right Wings and Top</li>
+                        <li><strong>5 players out:</strong> Left/Right Wings, Top, both Corners</li>
+                    </ul>
+                </div>
+                
+                <div class="key-points">
+                    <h3>Read and React Transition Options</h3>
+                    <ul>
+                        <li>Fill out to open spot (weak side or strong side)</li>
+                        <li>Post up → Feed post LA-Cut, X-Cut</li>
+                        <li>Set a Pin Screen</li>
+                        <li>Use a Pin and Screen</li>
+                        <li>After Cut set a Back Screen</li>
+                        <li>Use X-Cut or Relocate to open spot</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="competitive" class="section">
+                <h2>🏆 Competitive Drilling</h2>
+                
+                <div class="emphasis-box">
+                    <h3>Read Line Competitive 4-on-4 or 5-on-5</h3>
+                    <h4>Setup Rules:</h4>
+                    <ul>
+                        <li><span class="highlight">Do not allow mixing stages until every stage is mastered separately</span></li>
+                        <li><strong>Offense:</strong> 5 out, one meter away from arc, everyone in athletic stance</li>
+                        <li><strong>We don't fake cut - we just cut!</strong></li>
+                        <li><strong>Spacing:</strong> Draw defense away from paint</li>
+                        <li><strong>Don't bring extra defender to ball</strong></li>
+                    </ul>
+                    
+                    <h4>Defense Requirements:</h4>
+                    <ul>
+                        <li><strong>Man-to-man pressure on ball all the time</strong></li>
+                        <li><strong>One pass away:</strong> Guard passing line or full body deny</li>
+                        <li><strong>Two passes away:</strong> Help position</li>
+                        <li><strong>Weak side:</strong> Guard paint against drives</li>
+                    </ul>
+                    
+                    <h4>Defensive Reactions:</h4>
+                    <ul>
+                        <li><strong>A) Defender over-aggressive, stepping over 3-point line → Offense must cut</strong></li>
+                        <li><strong>B) Defender plays safe, gets ball → Must execute requested move (back/front pivot, pump fake, rip through, jab step, etc.)</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="scoring-system">
+                    <div class="offense-scoring">
+                        <h4>🔴 Offense Scoring</h4>
+                        <ul>
+                            <li><strong>1 point:</strong> Every successful pass on perimeter</li>
+                            <li><strong>2 points:</strong> Every successful pass to paint</li>
+                            <li><strong>3 points:</strong> Every successful layup</li>
+                            <li><strong>2 points:</strong> Every offensive rebound</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="defense-scoring">
+                        <h4>🔵 Defense Scoring</h4>
+                        <ul>
+                            <li><strong>1 point:</strong> Deflection one pass away (no turnover)</li>
+                            <li><strong>2 points:</strong> Deflection one pass away (turnover)</li>
+                            <li><strong>1 point:</strong> Deflection skip pass (no turnover)</li>
+                            <li><strong>2 points:</strong> Deflection skip pass (turnover)</li>
+                            <li><strong>2 points:</strong> Every missed shot by offense</li>
+                            <li><strong>2 points:</strong> Every defensive rebound</li>
+                            <li><strong>3 points:</strong> Every missed layup</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stage-progression">
+                    <h4>🎯 Offensive Stage Progression</h4>
+                    <ol>
+                        <li><strong>Stage 1:</strong> Pass ball one pass away, then must basket cut demanding ball. Players filling vacated spots must read defense and make moves based on defensive position (no fakes, no hesitations)</li>
+                        <li><strong>Stage 2:</strong> After cut, can set back screens (must post up first, then execute action)</li>
+                        <li><strong>Stage 3:</strong> Add Dribble At actions</li>
+                        <li><strong>Stage 4:</strong> Add Drive actions (Corner cut, Natural Pitch, Bounce Off)</li>
+                        <li><strong>Stage 5:</strong> Add Ball Screens</li>
+                        <li><strong>Stage 6:</strong> Add side screens and X-Cuts</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div id="stations" class="section">
+                <h2>🎯 Station Work & Execution</h2>
+                
+                <div class="drill-box">
+                    <h3>Station 1: Warm-Up Shooting</h3>
+                    <ol>
+                        <li><strong>Bounce Off</strong></li>
+                        <li><strong>Circle Movement</strong></li>
+                        <li><strong>Circle Reverse</strong>
+                            <ul>
+                                <li>Drive baseline</li>
+                                <li>On any drive, driving player picks up ball and gets stuck</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Station 2: Dribble At Wing → Post (No Corner Player)</h3>
+                    <h4>Post Player Focus: Push pass/wrap around passing</h4>
+                    
+                    <h4>Drive Options:</h4>
+                    <ol>
+                        <li><strong>Drive Baseline →→→ Post Relocate Elbow →→→ Top Relocate Wing</strong></li>
+                        <li><strong>Drive Middle →→→ Post Relocate Short Corner →→→ Top Relocate One Spot Away</strong></li>
+                        <li><strong>Drive Baseline & Bounce Off →→→ Post Relocate Elbow →→→ Top Relocate Wing & Back Door</strong></li>
+                        <li><strong>Drive Middle & Bounce Off →→→ Post Relocate Short Corner →→→ Top Relocate One Spot Away</strong></li>
+                    </ol>
+                    
+                    <h4>Hand Off to Corner (With Pass):</h4>
+                    <ul>
+                        <li><strong>Post screen to top →→→ Back cut with alley</strong></li>
+                        <li><strong>Post screen to top →→→ Post pop up for catch and shoot</strong></li>
+                        <li><strong>Post screen to wing →→→ Post jump shot elbow</strong></li>
+                        <li><strong>Post screen to wing →→→ Mid-range jump shot off glass</strong></li>
+                    </ul>
+                    
+                    <h4>Hand Off to Corner (No Pass):</h4>
+                    <ul>
+                        <li><strong>Dribble drive attack middle →→→ Post goes to short corner jump shot</strong></li>
+                        <li><strong>Dribble drive attack middle push shot →→→ Post goes to short corner</strong></li>
+                        <li><strong>Post screen to wing →→→ Back cut with alley up</strong></li>
+                    </ul>
+                    
+                    <h4>Wing Feed Post Actions:</h4>
+                    <ul>
+                        <li><strong>LA cuts (low post LA high, mid/high post any LA cuts)</strong></li>
+                        <li><strong>Layup finish - cutting wing</strong></li>
+                        <li><strong>After wing cut - Top relocate for 3-point shot</strong></li>
+                        <li><strong>After wing and top finish moves - Post player turnaround shot</strong></li>
+                    </ul>
+                    
+                    <h4>Wing Feed Post → X-Cut:</h4>
+                    <ul>
+                        <li><strong>Wing screen to top →→→ Layup (runner)</strong></li>
+                        <li><strong>Wing screen to top to relocate →→→ 3-point shot</strong></li>
+                    </ul>
+                    
+                    <h4>Ball Screen Actions:</h4>
+                    <ul>
+                        <li><strong>Top →→→ Ball screen to wing</strong>
+                            <ul>
+                                <li>Dribble drive jump shot elbow 3-point</li>
+                                <li>Post screen the screener →→→ Setting wing for alley up baseline cut</li>
+                            </ul>
+                        </li>
+                        <li><strong>Post →→→ Screen to wing</strong>
+                            <ul>
+                                <li>Baseline drive →→→ Jump shot off glass</li>
+                                <li>Baseline drive →→→ Post roll for jump shot elbow</li>
+                                <li>Baseline drive →→→ Post X-cut top →→→ Post roll for layup</li>
+                                <li>Baseline drive →→→ Post X-cut top →→→ Top 3-point shot</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Station 3: Pass to Wing</h3>
+                    <h4>Action Categories:</h4>
+                    <ol>
+                        <li><strong>Passing</strong></li>
+                        <li><strong>Driving</strong>
+                            <ul>
+                                <li>Bounce Off</li>
+                                <li>Circular Movement</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ball Screens</strong></li>
+                        <li><strong>X-Cuts</strong></li>
+                        <li><strong>Back Screens</strong></li>
+                        <li><strong>Front Cut & Post Up →→→ Wing feed post →→→ Post finish with post moves</strong></li>
+                        <li><strong>Ball Screen & Roll →→→ Jump shot or pass to rolling player</strong></li>
+                    </ol>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Station 4: Dribble At Top → Sending Top to Post</h3>
+                    <h4>Basic Actions:</h4>
+                    <ul>
+                        <li><strong>Top no pass, dribble alive → Initiate hand off</strong></li>
+                        <li><strong>Top post cut changed to X-cut to wing</strong></li>
+                        <li><strong>Top to post (elbow/free throw):</strong>
+                            <ul>
+                                <li>LA cut middle - Layup</li>
+                                <li>LA cut baseline - Jump shot off glass</li>
+                                <li>X-cut screener slip to short corner jump shot off glass</li>
+                                <li>X-cut layup</li>
+                                <li>X-cut wing relocate to top for 3-point shot</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <h4>Top Pass to Wing Options:</h4>
+                    <ul>
+                        <li><strong>Front cut:</strong> Finish finger roll, push shot</li>
+                        <li><strong>Baseline cut:</strong> Layup high off glass, jump shot off glass</li>
+                        <li><strong>Front cut + post side screen:</strong> Corner 3-point shot</li>
+                        <li><strong>Baseline cut + post side screen:</strong> Curl for elbow shot, layup (post slip)</li>
+                        <li><strong>Back screen by post:</strong> Go middle, go baseline</li>
+                        <li><strong>Down screen to post:</strong> Read defense</li>
+                        <li><strong>Ball screen:</strong> Figure out best options</li>
+                    </ul>
+                </div>
+                
+                <div class="drill-box">
+                    <h3>Additional Station Work</h3>
+                    <h4>Pass to Wing Straight Cut + Post Up:</h4>
+                    <ul>
+                        <li>Pass to wing using top as screen for basket cut</li>
+                        <li>Pass to wing using wing as screen for basket cut</li>
+                        <li>Pass to wing hand-off pass from wing</li>
+                    </ul>
+                    
+                    <h4>Pass to Top Straight Cut + Post Up:</h4>
+                    <ul>
+                        <li>Pass to top using wing as screen</li>
+                    </ul>
+                    
+                    <h4>Corner and Top Combinations:</h4>
+                    <ul>
+                        <li>Playing already in corner position</li>
+                    </ul>
+                    
+                    <h4>Corner and Wing Combinations:</h4>
+                    <ul>
+                        <li>Various corner-wing interactions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📋 Quick Reference Summary</h2>
+                
+                <div class="key-points">
+                    <h4>🔥 Must-Do Actions</h4>
+                    <ul>
+                        <li><span class="highlight">Pass → Cut</span></li>
+                        <li><span class="highlight">Feed Post → Cut</span></li>
+                        <li><span class="highlight">Dribble At → Cut</span></li>
+                        <li><span class="highlight">Defender Over 3-Point Line → Cut</span></li>
+                        <li><span class="highlight">Never Set Screen and Stand</span></li>
+                        <li><span class="highlight">Move to Pass, Don't Wait</span></li>
+                        <li><span class="highlight">Triple Threat Every Catch</span></li>
+                        <li><span class="highlight">Communicate with Names</span></li>
+                    </ul>
+                </div>
+                
+                <div class="emphasis-box">
+                    <h4>⚡ Key Reads</h4>
+                    <ul>
+                        <li><strong>Defender crosses read line:</strong> Cut</li>
+                        <li><strong>Defender looks away:</strong> Cut</li>
+                        <li><strong>Defender not in stance:</strong> Cut</li>
+                        <li><strong>Defender denies:</strong> Rear cut</li>
+                        <li><strong>Safety valve denied:</strong> Cut or X-cut</li>
+                        <li><strong>Can't make good cut:</strong> X-cut or screen away</li>
+                    </ul>
+                </div>
+                
+                <div class="glossary">
+                    <h4>🎯 Coaching Points</h4>
+                    <ul>
+                        <li><strong>Hunt position, not ball</strong></li>
+                        <li><strong>Take what defense gives you</strong></li>
+                        <li><strong>Change speeds in all actions</strong></li>
+                        <li><strong>Sharp passing away from defenders</strong></li>
+                        <li><strong>Constant movement mandatory</strong></li>
+                        <li><strong>Read defenders on every possession</strong></li>
+                        <li><strong>Execute with proper timing</strong></li>
+                        <li><strong>Maintain proper spacing</strong></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section" style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-align: center;">
+                <h2 style="color: white; border-bottom: 2px solid white;">🏀 Remember: Intelligence Over Pattern</h2>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 1rem 0;">
+                    "Read and React = Relentlessly attack defense weak areas without pattern.<br>
+                    Always take what the defense gives you."
+                </p>
+                <p style="font-size: 1rem; opacity: 0.9;">
+                    Emphasize intelligence: shot selection, pass and drive timing, patience with ball - choose the best action.
+                </p>
+            </div>
+        </div>
+        
+        <button class="nav-menu-btn" onclick="scrollToNav()" id="navMenuBtn" title="Jump to Navigation Menu">📋</button>
+        <button class="back-to-top" onclick="scrollToTop()" id="backToTop" title="Back to Top">↑</button>
+    </div>
+
+    <script>
+        function scrollToNav() {
+            document.querySelector('.nav-menu').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Show/hide navigation buttons based on scroll position
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            const navMenuBtn = document.getElementById('navMenuBtn');
+            const navMenu = document.querySelector('.nav-menu');
+            const navMenuPosition = navMenu.offsetTop;
+            
+            // Show back to top button when scrolled down
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+            
+            // Show nav menu button when scrolled past the navigation menu
+            if (window.pageYOffset > navMenuPosition + 100) {
+                navMenuBtn.style.display = 'block';
+            } else {
+                navMenuBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
